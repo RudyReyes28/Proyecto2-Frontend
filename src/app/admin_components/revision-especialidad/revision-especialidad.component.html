@@ -1,0 +1,43 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Revisar nuevas especialidades</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container my-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">id Especialidad</th>
+              <th scope="col">Especialidad</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Aceptar/Rechazar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let especialidad of especialidades let i=index">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ especialidad.idEspecialidad}}</td>
+              <td>{{ especialidad.nombre }}</td>
+              <td>{{ especialidad.descripcion}}</td>
+              <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-primary" type="button" (click)="aceptarEspecialidad(especialidad.idEspecialidad)">Aceptar</button>
+                    <button class="btn btn-danger" type="button"  (click)="rechazarEspecialidad(especialidad.idEspecialidad)">Rechazar</button>
+                  </div>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button"  (click)="regresarAdmin()">Regresar</button>
+    </div>
+</div>
+
+

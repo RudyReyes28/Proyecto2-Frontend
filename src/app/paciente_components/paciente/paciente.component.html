@@ -1,0 +1,40 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Bienvenido Paciente</h1>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Perfil</button>
+    </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Cerrar Sesion</button>
+    </div>
+    
+    </div>
+</header>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Realizar Recarga</h5>
+              <p class="card-text">Realiza una recarga para aumentar su saldo</p>
+              <button class="btn btn-primary" type="button" (click)="realizarRecarga()">Recargar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Agendar Consulta</h5>
+              <p class="card-text">Agende una consulta con un medico de la aplicacion</p>
+              <button class="btn btn-primary" type="button" (click)="agendarConsulta()" >Agendar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

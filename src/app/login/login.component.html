@@ -1,0 +1,43 @@
+<div class="container my-3">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-primary">Cargar Datos</button>
+  </div>
+</div>
+
+<form  #f="ngForm" (ngSubmit)="f.form.valid && onIniciarSesion()" >
+  <div class="container my-5">
+    <div class="row justify-content-center p-5">
+      <div class="text-center mb-8 col-xl-4 border border-primary rounded">
+        <h2>Ingresar usuario</h2>
+
+        <div class="mb-3 my-4">
+          <label for="ingresarUsuario" class="form-label">Usuario</label>
+          <input
+            type="text"
+            name="usuario"
+            class="form-control"
+            id="ingresarUsuario"
+            [(ngModel)]="usuarioInput" requerid
+          />
+        </div>
+        <div class="mb-3">
+          <label for="ingresarContraseña" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            name="contraseña"
+            class="form-control"
+            id="exampleInputPassword1"
+            [(ngModel)]="contraseniaInput" requerid
+          />
+        </div>
+
+        <div class="mb-3">
+            <a [routerLink]="['/registrarse']">
+                ¿No tiene una cuenta? Registrarse
+            </a>
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

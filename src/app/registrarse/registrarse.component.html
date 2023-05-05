@@ -1,0 +1,81 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Registrar Usuario</h1>
+            </div>
+        </div>
+    </div>
+</header> 
+
+<form #f="ngForm" (ngSubmit)="f.form.valid && registrarUsuario()" >
+
+            <div class=" container my-5">
+
+                <!-- Aqui van los tipos de usuario -->
+                <div class="form-floating mb-3">
+                    <select name="tienda" class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                    [(ngModel)]="tipoUsuarioInput" requerid>
+                        
+                            <option value="MEDICO">Medico</option>
+                            <option value="PACIENTE">Paciente</option>
+                            <option value="LABORATORIO">Laboratorio</option>
+                    </select>
+                    <label for="floatingSelect">Tipo de Usuario</label>
+                </div> 
+
+
+                <div class="form-floating mb-3" >
+                    <input name="nombre" type="text" class="form-control" id="floatingInput" placeholder="nombre"
+                    [(ngModel)]="nombreInput" requerid>
+                    <label for="floatingInput">Nombre</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="usuario" type="text" class="form-control" id="floatingInput" placeholder="usuario"
+                    [(ngModel)]="usuarioInput" requerid>
+                    <label for="floatingInput">Nombre de Usuario</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="contrasenia" type="password" class="form-control" id="floatingPassword" placeholder="Contraseña"
+                    [(ngModel)]="contraseniaInput" requerid>
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="direccion" type="text" class="form-control" id="floatingInput" placeholder="direccion"
+                    [(ngModel)]="direccionInput" requerid>
+                    <label for="floatingInput">Direccion</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="telefono" type="number" class="form-control" id="floatingInput" placeholder="telefono"
+                    [(ngModel)]="telefonoInput" requerid>
+                    <label for="floatingInput">Telefono</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="correo" type="email" class="form-control" id="floatingInput" placeholder="usuario@gmail.com"
+                    [(ngModel)]="correoInput" requerid>
+                    <label for="floatingInput">Correo</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="cui" type="number" class="form-control" id="floatingInput" placeholder="CUI"
+                    [(ngModel)]="CUIInput" requerid>
+                    <label for="floatingInput">CUI</label>
+                </div>
+
+                <div class="form-floating mb-3" >
+                    <input name="fecha" type="date" class="form-control" id="floatingInput" placeholder="Fecha"
+                    [(ngModel)]="fechaNacimientoInput" requerid>
+                    <label for="floatingInput">Fecha de Nacimiento</label>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                </div>   
+            </div>
+        </form>

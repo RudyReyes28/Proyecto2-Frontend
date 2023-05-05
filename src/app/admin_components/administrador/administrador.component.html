@@ -1,0 +1,63 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Bienvenido Admin</h1>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Perfil</button>
+    </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Cerrar Sesion</button>
+    </div>
+    
+    </div>
+</header>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Revisar Especialidad</h5>
+              <p class="card-text">Revisar las especialidades pendientes de aceptar</p>
+              <button class="btn btn-primary" type="button" (click)="revisarEspecialidad()">Revisar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Revisar Examen</h5>
+              <p class="card-text">Revisar los examenes pendientes de aceptar</p>
+              <button class="btn btn-primary" type="button" (click)="revisarExamen()" >Revisar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Porcentaje de Cobro</h5>
+            <p class="card-text">Cambia el porcentaje de cobro de la aplicacion</p>
+            <button class="btn btn-primary" type="button" (click)="cambiarPorcentaje()">Revisar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">No hace nada</h5>
+            <p class="card-text">Sin informacion</p>
+            <button class="btn btn-primary" type="button" >Revisar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Solicitar nuevo tipo de examen</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container my-5">
+  <form #f="ngForm" (ngSubmit)="f.form.valid && solicitarExamen()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nombre del tipo de examen</label>
+      <input type="text" name="nuevoExamen" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+      [(ngModel)]="nombreInput"
+      requerid>
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Descripcion</label>
+      <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3"
+      [(ngModel)]="descripcionInput"
+      requerid></textarea>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="submit" >Solicitar</button>
+    </div>
+  </form>
+</div>
+

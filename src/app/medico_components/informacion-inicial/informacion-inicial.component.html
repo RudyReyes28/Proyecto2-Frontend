@@ -1,0 +1,116 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Completar Informacion Medico</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container my-5">
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && registrarEspecialidad()" > 
+  <div class="form-floating mb-3">
+    <select
+      name="especialidades"
+      class="form-select"
+      id="floatingSelect"
+      aria-label="Floating label select example"
+      [(ngModel)]="idEspecialidadInput"
+      requerid
+    >
+      <option
+        *ngFor="let especialidad of especialidades"
+        [value]="especialidad.idEspecialidad"
+      >
+        {{ especialidad.nombre }}
+      </option>
+    </select>
+    <label for="floatingSelect">Especialidad</label>
+  </div>
+
+  <div class="row g-3">
+
+    <div class="col-auto">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Precio</span>
+            <input type="number" name="precio" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="precioInput"
+            requerid>
+        </div>
+    </div>
+    
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+    </div>
+  </div>
+</form>
+
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">id Especialidad</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let especialidad of especialidadMedico; let i=index">
+          <th scope="row">{{ i+1 }}</th>
+          <td>{{ especialidad.id }}</td>
+          <td>{{ especialidad.precio }}</td>
+        </tr>
+      </tbody>
+  </table>
+
+
+  <form #f="ngForm" (ngSubmit)="f.form.valid && registrarHorario()" >   
+  <div class="row g-3">
+    
+    <div class="col-auto">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Hora de Atencion Inicial</span>
+            <input type="time" name="horaInicial" class="form-control" placeholder="08:00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="horaInicialInput"
+            requerid>
+        </div>
+    </div>
+
+    <div class="col-auto">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Hora de Atencion Final</span>
+            <input type="time" name="horaFinal" class="form-control" placeholder="12:00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="horaFinalInput"
+            requerid>
+        </div>
+    </div>
+    
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+    </div>
+  </div>
+</form>
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Horario de Atencion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horario of horarioMedico; let i=index">
+          <th scope="row">{{ i+1 }}</th>
+          <td>{{horario.horaInicial}} a {{ horario.horaFinal}}</td>
+        </tr>
+      </tbody>
+  </table>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" type="button"  (click)="enviarInformacion()">Enviar</button>
+  </div>
+</div>
+
+

@@ -1,0 +1,62 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Bienvenido Medico</h1>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Perfil</button>
+    </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" >Cerrar Sesion</button>
+    </div>
+    
+    </div>
+</header>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Solicitar Especialidad</h5>
+              <p class="card-text">Solicita una nueva especialidad al administrador</p>
+              <button class="btn btn-primary" type="button" (click)="nuevaEspecialidad()">Solicitar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Actualizar Especialidades</h5>
+              <p class="card-text">Actualiza o agrega nuevas especialidades al repertorio</p>
+              <button class="btn btn-primary" type="button" (click)="actualizarEspecialidad()">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Actualizar Horario</h5>
+              <p class="card-text">Agrega o actuliza el horario de atencion</p>
+              <button class="btn btn-primary" type="button" (click)="actualizarHorario()">Solicitar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nada</h5>
+              <p class="card-text">Aun nada</p>
+              <button class="btn btn-primary" type="button" >Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

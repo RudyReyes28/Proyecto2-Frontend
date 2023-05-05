@@ -1,0 +1,133 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Agendar Consulta</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && buscarMedico()" >   
+        <div class="row g-3">
+          
+          <div class="col-auto">
+              <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">Nombre Medico</span>
+                  <input type="text" name="nombreMedico" class="form-control" aria-label="Username" aria-describedby="addon-wrapping"
+                  [(ngModel)]="medicoInput"
+                  requerid>
+              </div>
+          </div>
+          
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </div>
+        </div>
+      </form>
+
+      <form #f="ngForm" (ngSubmit)="f.form.valid && buscarEspecialidad()" >   
+        <div class="row g-3">
+          
+          <div class="col-auto">
+              <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">Especialidad</span>
+                  <select
+                    name="especialidades"
+                    class="form-select"
+                    aria-label="Floating label select example"
+                    [(ngModel)]="especialidadInput"
+                    requerid
+                    >
+                    <option
+                    *ngFor="let especialidad of especialidades"
+                    [value]="especialidad.idEspecialidad"
+                    >
+                    {{ especialidad.nombre }}
+                    </option>
+                    </select>
+              </div>
+          </div>
+          
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </div>
+        </div>
+      </form>
+
+      <table *ngIf="activarTabla === 1" class="table table-striped caption-top">
+        <caption>Medicos Registrados</caption> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Medico</th>
+              <th scope="col">id Especialidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Agendar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let medico of medicos; let i=index">
+                <ng-container *ngFor="let especialidad of medico.especialidad; let j=index">
+                  <tr *ngIf=" medico.nombre == medicoInput ||especialidad.id == especialidadInput">
+                    <th scope="row">{{ i+j+1 }}</th>
+                    <td >{{ medico.nombre }}</td>
+                    <td>{{ especialidad.id }}</td>
+                    <td>{{ especialidad.precio }}</td>
+                    <td>
+                      <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary" type="button" (click)="agendarMedico(medico.idMedico, especialidad.id, especialidad.precio)">Agendar</button>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+          </tbody>
+      </table>
+
+      <form *ngIf="activarHorarios === 1"  #f="ngForm" (ngSubmit)="f.form.valid && verHorarios()" >   
+        <div class="row g-3">
+          
+          <div class="col-auto">
+              <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">Ingresar fecha de consulta</span>
+                  <input type="date" name="fecha" class="form-control" aria-label="Username" aria-describedby="addon-wrapping"
+                  [(ngModel)]="idFechaInput"
+                  requerid>
+              </div>
+          </div>
+          
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </div>
+        </div>
+      </form>
+
+      <table *ngIf="activarTablaHorarios === 1" class="table table-striped caption-top">
+        <caption>Horarios Registrados</caption> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Horario de Atencion</th>
+              <th scope="col">Agendar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let horario of horarioMedico; let i=index">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{horario.horaInicial}} a {{ horario.horaFinal}}</td>
+              <td>
+                    <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-primary" type="button" (click)="agendarConsulta(horario.idHorario, horario.horaInicial, horario.horaFinal)">Agendar</button>
+                    </div>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+        <button class="btn btn-primary" type="button"  (click)="regresar()">Regresar</button>
+      </div>
+  </div>

@@ -1,0 +1,28 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Cambiar Porcentaje de Cobro</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container my-5">
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && realizarRecarga()">
+        
+        <div class="input-group flex-nowrap mt-3">
+            <span class="input-group-text" id="addon-wrapping">Saldo a Recargar</span>
+            <input type="number" name="porcentajeNuevo" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="nuevaRecargaInput"
+            requerid>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button class="btn btn-primary" type="submit" >Realizar recarga</button>
+        </div>
+
+    </form>
+    
+</div>
