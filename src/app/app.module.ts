@@ -37,6 +37,8 @@ import { DataServiceActualizarTipoExamen } from './data_services/data-service-ac
 import { ActualizarHorarioComponent } from './medico_components/actualizar-horario/actualizar-horario.component';
 import { AgendarConsultaComponent } from './paciente_components/agendar-consulta/agendar-consulta.component';
 import { DataServiceAgendarConsulta } from './data_services/data-service-agendarConsulta';
+import { DataServiceSolicitarExamen } from './data_services/data-service-solicitarExamen';
+import { SolicitarExamenesPacienteComponent } from './paciente_components/solicitar-examenes-paciente/solicitar-examenes-paciente.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { DataServiceAgendarConsulta } from './data_services/data-service-agendar
     ActualizarEspecialidadComponent,
     ActualizarTipoExamenComponent,
     ActualizarHorarioComponent,
-    AgendarConsultaComponent
+    AgendarConsultaComponent,
+    SolicitarExamenesPacienteComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { DataServiceAgendarConsulta } from './data_services/data-service-agendar
   providers: [UsuarioService, DataServiceLogin, DataServiceRegistrarse, DataServicePrimerInicioSesion,
     DataServiceInformacionInicialMedico, DataServiceInformacionInicialLab, DataServiceSolicitarNuevaEspecialidad,
   DataServiceSolicitarNuevoExamen, DataServiceResivionAdmin, DataServicePorcentajeCobro, DataServiceRealizarRecarga,
-  DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta],
+  DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
+  DataServiceSolicitarExamen],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
