@@ -1,0 +1,167 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Ver Consultas Pendientes</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && filtrarConsultas()" >   
+        <div class="row g-3">
+          
+          <div class="col-auto">
+              <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">Buscar por fecha agendada</span>
+                  <input type="date" name="fecha" class="form-control" aria-label="Username" aria-describedby="addon-wrapping"
+                  [(ngModel)]="fechaInput">
+              </div>
+          </div>
+          
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </div>
+        </div>
+      </form>
+
+      <table class="table table-striped caption-top">
+        <caption>Consultas Pendientes</caption> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Paciente</th>
+              <th scope="col">id Especialidad</th>
+              <th scope="col">Fecha Agendada</th>
+              <th scope="col">Finalizar Consulta</th>
+              <th scope="col">Asignar Examenes</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let consulta of consultasFiltradas; let i=index">
+                <th scope="row">{{ i+1 }}</th>
+                <td >{{ consulta.nombrePaciente}}</td>
+                <td>{{ consulta.idEspecialidad }}</td>
+                <td>{{ consulta.fechaAgendada.fecha}}</td>
+                <td>
+                <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary" type="button" (click)="finalizarConsulta(consulta.idPaciente, consulta.idConsulta, consulta.nombrePaciente)">Finalizar</button>
+                </div>
+                </td>
+                <td>
+                    <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-primary" type="button" (click)="asignarExamen(consulta.idPaciente, consulta.idConsulta)">Asignar</button>
+                    </div>
+                    </td>
+                </tr>
+          </tbody>
+      </table>
+
+  </div>
+
+  <div *ngIf="activarFinalizarConsulta===1" class="container my-5">
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>Finalizar Consulta</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="col-auto my-5">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Paciente: {{nombrePaciente}}</span>
+        </div>
+
+        <form #f="ngForm" (ngSubmit)="f.form.valid && enviarInforme()" >
+            
+            <div class="row g-3">
+
+            
+            <div class="col-auto mb-3">
+                <label for="exampleInputPassword1" class="form-label">Informe Final</label>
+                <textarea class="form-control" name="informe" id="exampleFormControlTextarea1" rows="3"
+                [(ngModel)]="informeConsulta"
+                requerid></textarea>
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Enviar Informe</button>
+            </div>
+            </div>
+        </form>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="activarAgregarExamen===1" class="container my-5">
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>Agregar Examenes</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+    <div class="container my-2">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && registrarExamen()" > 
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">Examen a solicitar</span>
+              <select
+                name="examenes"
+                class="form-select"
+                id="floatingSelect"
+                aria-label="Floating label select example"
+                [(ngModel)]="idExamenInput"
+                requerid
+              >
+                <option
+                  *ngFor="let examen of escogerExamenes"
+                  [value]="examen.idTipo"
+                >
+                  {{examen.nombre}}
+                </option>
+              </select>
+            </div>
+          
+            <div class="row g-3">  
+              <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Agregar</button>
+              </div>
+            </div>
+        </form>
+
+        <table class="table table-striped caption-top">
+            <caption>Examenes Asignados</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">id Examen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let examen of examenesConsulta; let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{ examen.idExamen}}</td>
+                </tr>
+              </tbody>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="button"  (click)="enviarExamenes()">Enviar</button>
+              </div>
+          </table>
+
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+        <button class="btn btn-primary" type="button"  (click)="regresar()">Regresar</button>
+      </div>
+  </div>

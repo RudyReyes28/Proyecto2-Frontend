@@ -39,6 +39,8 @@ import { AgendarConsultaComponent } from './paciente_components/agendar-consulta
 import { DataServiceAgendarConsulta } from './data_services/data-service-agendarConsulta';
 import { DataServiceSolicitarExamen } from './data_services/data-service-solicitarExamen';
 import { SolicitarExamenesPacienteComponent } from './paciente_components/solicitar-examenes-paciente/solicitar-examenes-paciente.component';
+import { DataServiceVerConsultasMedico } from './data_services/data-service-verConsultasMedico';
+import { VerConsultasComponent } from './medico_components/ver-consultas/ver-consultas.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { SolicitarExamenesPacienteComponent } from './paciente_components/solici
     ActualizarTipoExamenComponent,
     ActualizarHorarioComponent,
     AgendarConsultaComponent,
-    SolicitarExamenesPacienteComponent
+    SolicitarExamenesPacienteComponent,
+    VerConsultasComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,7 @@ import { SolicitarExamenesPacienteComponent } from './paciente_components/solici
     DataServiceInformacionInicialMedico, DataServiceInformacionInicialLab, DataServiceSolicitarNuevaEspecialidad,
   DataServiceSolicitarNuevoExamen, DataServiceResivionAdmin, DataServicePorcentajeCobro, DataServiceRealizarRecarga,
   DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
-  DataServiceSolicitarExamen],
+  DataServiceSolicitarExamen, DataServiceVerConsultasMedico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

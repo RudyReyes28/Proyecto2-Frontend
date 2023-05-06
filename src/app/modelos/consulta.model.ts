@@ -11,7 +11,8 @@ export class Consulta {
       public precio: number,
       public informe: string,
       public estado: string,
-      public fechaAgendada: FechaConsulta
+      public fechaAgendada: FechaConsulta,
+      public nombrePaciente: string
     ) {}
   }
   

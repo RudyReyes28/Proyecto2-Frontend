@@ -113,7 +113,7 @@ export class AgendarConsultaComponent implements OnInit {
 
     if(this.paciente.saldo > this.precioInput){
       let fechaConsulta = new FechaConsulta(null,this.idFechaInput,idHorario, horaInicial, horaFinal, null, this.idMedicoInput);
-      let consulta = new Consulta(null, this.idPaciente, this.idMedicoInput, this.idEspecialidadInput, null, null, this.precioInput, null, null, fechaConsulta );
+      let consulta = new Consulta(null, this.idPaciente, this.idMedicoInput, this.idEspecialidadInput, null, null, this.precioInput, null, null, fechaConsulta, null);
       
       this.servicioPaciente.agendarConsulta(consulta)
     .subscribe(

@@ -46,4 +46,8 @@ export class MedicoComponent implements OnInit {
     this.router.navigate(['medico/ActualizarHorario', this.usuario.idUsuario]);
   }
 
+  verConsultas(){
+    this.router.navigate(['medico/VerConsultas', this.usuario.idUsuario]);
+  }
+
 }
