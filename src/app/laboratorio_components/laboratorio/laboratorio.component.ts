@@ -41,4 +41,8 @@ export class LaboratorioComponent implements OnInit {
     this.router.navigate(['laboratorio/ActualizarExamen', this.usuario.idUsuario]);
   }
 
+  solicitudExamen(){
+    this.router.navigate(['laboratorio/SolicitudExamenes', this.usuario.idUsuario]);
+  }
+
 }

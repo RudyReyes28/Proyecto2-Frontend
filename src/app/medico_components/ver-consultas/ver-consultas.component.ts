@@ -95,7 +95,7 @@ export class VerConsultasComponent implements OnInit {
   }
 
   registrarExamen(){
-    let examen = new ExamenSolicitado(null,this.idConsulta,this.idExamenInput,null,null);
+    let examen = new ExamenSolicitado(null,null,this.idConsulta,this.idExamenInput,null,null);
     this.examenesConsulta.push(examen);
   
   }

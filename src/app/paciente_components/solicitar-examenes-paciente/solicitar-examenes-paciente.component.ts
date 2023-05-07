@@ -82,7 +82,7 @@ export class SolicitarExamenesPacienteComponent implements OnInit {
         alert('Su saldo es insuficiente para agregar este examen');
         this.precioTotal -= this.precioInput;
     }else{
-      let examen = new ExamenSolicitado(null, null, this.idExamenInput, this.precioInput, null);
+      let examen = new ExamenSolicitado(null,null, null, this.idExamenInput, this.precioInput, null);
       this.examenes.push(examen);
     }
     

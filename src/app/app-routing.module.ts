@@ -8,6 +8,7 @@ import { ActualizarTipoExamenComponent } from './laboratorio_components/actualiz
 import { InformacionInicialLabComponent } from './laboratorio_components/informacion-inicial-lab/informacion-inicial-lab.component';
 import { LaboratorioComponent } from './laboratorio_components/laboratorio/laboratorio.component';
 import { SolicitarExamenComponent } from './laboratorio_components/solicitar-examen/solicitar-examen.component';
+import { VerSolicitudExamenComponent } from './laboratorio_components/ver-solicitud-examen/ver-solicitud-examen.component';
 import { LoginComponent } from './login/login.component';
 import { ActualizarEspecialidadComponent } from './medico_components/actualizar-especialidad/actualizar-especialidad.component';
 import { ActualizarHorarioComponent } from './medico_components/actualizar-horario/actualizar-horario.component';
@@ -42,7 +43,9 @@ const routes: Routes = [
   {path: 'medico/ActualizarHorario/:id', component:ActualizarHorarioComponent},
   {path: 'paciente/AgendarConsulta/:id', component:AgendarConsultaComponent},
   {path: 'paciente/SolicitarExamen/:id', component:SolicitarExamenesPacienteComponent},
-  {path: 'medico/VerConsultas/:id', component:VerConsultasComponent}
+  {path: 'medico/VerConsultas/:id', component:VerConsultasComponent},
+  {path: 'laboratorio/SolicitudExamenes/:id', component:VerSolicitudExamenComponent}
+  
   
   
 ];
