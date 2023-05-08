@@ -78,7 +78,7 @@ export class VerConsultasComponent implements OnInit {
   }
 
   enviarInforme(){
-    let consultaFinal = new Consulta(this.idConsulta,this.idPaciente,this.idMedico,null,null,null,null,this.informeConsulta,null,null,null);
+    let consultaFinal = new Consulta(this.idConsulta,this.idPaciente,this.idMedico,null,null,null,null,this.informeConsulta,null,null,null,null);
     this.servicioConsultas.finalizarConsulta(consultaFinal)
     .subscribe(
       (consultas: Consulta)=>{

@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>Resultados de Examenes</h1>
+          <h1>Solicitudes de Examenes Pendientes</h1>
         </div>
       </div>
     </div>
@@ -10,25 +10,23 @@
 
 <div class="container my-5">
     <table class="table table-striped caption-top">
-        <caption>Solicitudes Finalizadas</caption> 
+        <caption>Consultas con examenes Pendientes</caption> 
         <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">id Laboratorio</th>
-              <th scope="col">id Solicitud</th>
-              <th scope="col">Fecha Finalizada</th>
-              <th scope="col">Ver Examenes</th>
+              <th scope="col">id Medico</th>
+              <th scope="col">id Consulta</th>
+              <th scope="col">Agregar Examenes</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let solicitud of solicitudes; let i=index">
               <th scope="row">{{ i+1 }}</th>
-              <td>{{solicitud.idPaciente}}</td>
-              <td>{{solicitud.idSolicitud}}</td>
-              <td>{{solicitud.fecha_solicitado}}</td>
+              <td>{{solicitud.idMedico}}</td>
+              <td>{{solicitud.idConsulta}}</td>
               <td>
                 <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="button" (click)="verSolicitud(solicitud.idPaciente, solicitud.idSolicitud, i)">Ver Examenes</button>
+                <button class="btn btn-primary" type="button" (click)="verConsulta(solicitud.idMedico, solicitud.idConsulta, i)">Ver Examenes</button>
                 </div>
             </td>
             </tr>
@@ -37,15 +35,14 @@
 
       <div *ngIf="activarTabla ===1" class="container my-3">
         <table class="table table-striped caption-top">
-            <caption>Ver Examenes</caption> 
+            <caption>Agregar Examenes</caption> 
             <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">id Examen</th>
-                  <th scope="col">id Solicitud</th>
-                  <th scope="col">id Laboratorio</th>
-                  <th scope="col">Ver Examen</th>
-                  <th scope="col">Descargar Examen</th>
+                  <th scope="col">id Consulta</th>
+                  <th scope="col">id Medico</th>
+                  <th scope="col">Subir Examenes</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,22 +50,16 @@
                   <th scope="row">{{ i+1 }}</th>
                   <td>{{examen.idExamen}}</td>
                   <td>{{examen.idSolicitud}}</td>
-                  <td>{{idLaboratorio}}</td>
+                  <td>{{idMedico}}</td>
                   <td>
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-primary" type="button" (click)="seleccionarArchivo(examen.idExamenSolicitado)">Ver Examen</button>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-primary" type="button" (click)="descargarExamen(examen.idExamenSolicitado)">Descargar Examen</button>
+                        <input type="file" (change)="seleccionarArchivo($event, examen.idExamenSolicitado)" />
                     </div>
                 </td>
                 </tr>
               </tbody>
           </table>
         </div>
-        
 
         <div class="container my-5">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
@@ -76,3 +67,4 @@
               </div>
           </div>
 </div>
+

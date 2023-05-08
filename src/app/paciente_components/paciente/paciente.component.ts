@@ -32,4 +32,8 @@ export class PacienteComponent implements OnInit {
   resultadosExamen(){
     this.router.navigate(['paciente/VerResultados', this.idPaciente]);
   }
+
+  subirExamenes(){
+    this.router.navigate(['paciente/SubirResultados', this.idPaciente]);
+  }
 }

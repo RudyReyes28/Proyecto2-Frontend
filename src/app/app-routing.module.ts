@@ -20,6 +20,7 @@ import { AgendarConsultaComponent } from './paciente_components/agendar-consulta
 import { PacienteComponent } from './paciente_components/paciente/paciente.component';
 import { RealizarRecargaComponent } from './paciente_components/realizar-recarga/realizar-recarga.component';
 import { SolicitarExamenesPacienteComponent } from './paciente_components/solicitar-examenes-paciente/solicitar-examenes-paciente.component';
+import { SubirResultadosExamenComponent } from './paciente_components/subir-resultados-examen/subir-resultados-examen.component';
 import { VerResultadoExamenComponent } from './paciente_components/ver-resultado-examen/ver-resultado-examen.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 
@@ -46,7 +47,8 @@ const routes: Routes = [
   {path: 'paciente/SolicitarExamen/:id', component:SolicitarExamenesPacienteComponent},
   {path: 'medico/VerConsultas/:id', component:VerConsultasComponent},
   {path: 'laboratorio/SolicitudExamenes/:id', component:VerSolicitudExamenComponent},
-  {path: 'paciente/VerResultados/:id', component:VerResultadoExamenComponent}
+  {path: 'paciente/VerResultados/:id', component:VerResultadoExamenComponent},
+  {path: 'paciente/SubirResultados/:id', component:SubirResultadosExamenComponent}
   
   
   

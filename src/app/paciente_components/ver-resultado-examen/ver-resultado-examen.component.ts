@@ -54,15 +54,7 @@ export class VerResultadoExamenComponent implements OnInit {
       const urlArchivo = URL.createObjectURL(archivo);
       const nuevaVentana = window.open(urlArchivo, '_blank');
       nuevaVentana.document.title = 'examen'+idExamenSolicitado+'.pdf';
-      /*
-      const a = document.createElement('a');
-      a.href = urlArchivo;
-      a.target = '_blank';
-      a.download = 'examen'+idExamenSolicitado+'.pdf';
-      nuevaVentana.document.body.appendChild(a);
-      a.click();
-       document.body.removeChild(a);*/
-
+      
 
     });
 

@@ -1,3 +1,4 @@
+import { ExamenSolicitado } from "./examenSolicitado.model";
 import { FechaConsulta } from "./fechaConsulta.model";
 
 export class Consulta {
@@ -12,7 +13,8 @@ export class Consulta {
       public informe: string,
       public estado: string,
       public fechaAgendada: FechaConsulta,
-      public nombrePaciente: string
+      public nombrePaciente: string,
+      public examenes: ExamenSolicitado []
     ) {}
   }
   
