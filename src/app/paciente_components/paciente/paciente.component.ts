@@ -28,4 +28,8 @@ export class PacienteComponent implements OnInit {
   solicitarExamen(){
     this.router.navigate(['paciente/SolicitarExamen', this.idPaciente]);
   }
+
+  resultadosExamen(){
+    this.router.navigate(['paciente/VerResultados', this.idPaciente]);
+  }
 }
