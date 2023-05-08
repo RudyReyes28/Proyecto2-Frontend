@@ -1,0 +1,54 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Perfil del Laboratorio</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <form #f="ngForm" (ngSubmit)="f.form.valid" >
+
+    <div class=" container my-5">
+
+       
+
+
+        <div class="form-floating mb-3" >
+            <input name="nombre" type="text" class="form-control" id="floatingInput" placeholder="nombre"
+            value="{{usuario.nombre}}" readonly>
+            <label for="floatingInput">Nombre</label>
+        </div>
+
+        <div class="form-floating mb-3" >
+            <input name="usuario" type="text" class="form-control" id="floatingInput" placeholder="usuario"
+            value="{{usuario.usuario}}" readonly>
+            <label for="floatingInput">Nombre de Usuario</label>
+        </div>
+
+        <div class="form-floating mb-3" >
+            <input name="correo" type="email" class="form-control" id="floatingInput" placeholder="usuario@gmail.com"
+            value="{{usuario.correo}}" readonly>
+            <label for="floatingInput">Correo</label>
+        </div>
+
+
+        <div class="form-floating mb-3" >
+            <input name="fecha" type="date" class="form-control" id="floatingInput" placeholder="Fecha"
+            value="{{usuario.fechaNacimiento}}" readonly>
+            <label for="floatingInput">Fecha de Fundacion</label>
+        </div>
+
+        <div class="form-floating mb-3" >
+            <input name="saldo" type="number" class="form-control" id="floatingInput" placeholder="Fecha"
+            value="{{usuario.saldo}}" readonly>
+            <label for="floatingInput">Saldo</label>
+        </div>
+    </div>
+</form>
+
+<div class="container my-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+        <button class="btn btn-primary" type="button"  (click)="regresar()">Regresar</button>
+      </div>
+  </div>

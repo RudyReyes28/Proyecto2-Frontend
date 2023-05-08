@@ -45,4 +45,12 @@ export class LaboratorioComponent implements OnInit {
     this.router.navigate(['laboratorio/SolicitudExamenes', this.usuario.idUsuario]);
   }
 
+  verPerfil(){
+    this.router.navigate(['laboratorio/verPerfil', this.usuario.idUsuario]);
+  }
+
+  cerrarSesion(){
+    this.router.navigate(['login']);
+  }
+
 }

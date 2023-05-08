@@ -5,13 +5,15 @@
           <h1>Bienvenido Medico</h1>
         </div>
       </div>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button" >Perfil</button>
-    </div>
-
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button" >Cerrar Sesion</button>
-    </div>
+      <div class="row">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button" (click)="verPerfil()" >Perfil</button>
+      </div>
+  
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button" (click)="cerrarSesion()">Cerrar Sesion</button>
+      </div>
+      </div>
     
     </div>
 </header>
@@ -72,9 +74,9 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Nada</h5>
-              <p class="card-text">Nada</p>
-              <button class="btn btn-primary" type="button">Ver Consultas</button>
+              <h5 class="card-title">Ver Historial</h5>
+              <p class="card-text">Permite ver el historial medico de las consultas y examenes del paciente</p>
+              <button class="btn btn-primary" type="button" (click)="verHistorial()">Ver Historial</button>
             </div>
           </div>
         </div>

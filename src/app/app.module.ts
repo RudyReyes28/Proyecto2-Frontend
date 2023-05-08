@@ -49,6 +49,13 @@ import { SubirResultadosExamenComponent } from './paciente_components/subir-resu
 import { DataServiceSubirExamenesConsulta } from './data_services/data-service-subirResultadoExamen';
 import { RevisarExamenConsultaComponent } from './medico_components/revisar-examen-consulta/revisar-examen-consulta.component';
 import { DataServiceRevisarExamenesConsulta } from './data_services/data-service-revisarExamenConsulta';
+import { VerHistorialMedicoComponent } from './medico_components/ver-historial-medico/ver-historial-medico.component';
+import { DataServiceVerHistorialMedico } from './data_services/data-service-verHistorialMedico';
+import { DataServiceVerPerfil } from './data_services/data-service-verPerfil';
+import { VerPerfilMedicoComponent } from './medico_components/ver-perfil-medico/ver-perfil-medico.component';
+import { VerPerfilAdminComponent } from './admin_components/ver-perfil-admin/ver-perfil-admin.component';
+import { VerPerfilLabComponent } from './laboratorio_components/ver-perfil-lab/ver-perfil-lab.component';
+import { VerPerfilPacienteComponent } from './paciente_components/ver-perfil-paciente/ver-perfil-paciente.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +83,12 @@ import { DataServiceRevisarExamenesConsulta } from './data_services/data-service
     VerSolicitudExamenComponent,
     VerResultadoExamenComponent,
     SubirResultadosExamenComponent,
-    RevisarExamenConsultaComponent
+    RevisarExamenConsultaComponent,
+    VerHistorialMedicoComponent,
+    VerPerfilMedicoComponent,
+    VerPerfilAdminComponent,
+    VerPerfilLabComponent,
+    VerPerfilPacienteComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +101,8 @@ import { DataServiceRevisarExamenesConsulta } from './data_services/data-service
   DataServiceSolicitarNuevoExamen, DataServiceResivionAdmin, DataServicePorcentajeCobro, DataServiceRealizarRecarga,
   DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
   DataServiceSolicitarExamen, DataServiceVerConsultasMedico, DataServiceSolicitudExamenPendiente,
-  DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta],
+  DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta,
+  DataServiceVerHistorialMedico, DataServiceVerPerfil],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

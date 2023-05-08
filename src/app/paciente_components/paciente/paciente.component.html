@@ -5,13 +5,15 @@
           <h1>Bienvenido Paciente</h1>
         </div>
       </div>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button" >Perfil</button>
-    </div>
-
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button" >Cerrar Sesion</button>
-    </div>
+      <div class="row">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button" (click)="verPerfil()" >Perfil</button>
+      </div>
+  
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary" type="button" (click)="cerrarSesion()">Cerrar Sesion</button>
+      </div>
+      </div>
     
     </div>
 </header>

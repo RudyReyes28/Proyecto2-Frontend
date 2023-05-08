@@ -36,4 +36,12 @@ export class PacienteComponent implements OnInit {
   subirExamenes(){
     this.router.navigate(['paciente/SubirResultados', this.idPaciente]);
   }
+
+  verPerfil(){
+    this.router.navigate(['paciente/verPerfil', this.idPaciente]);
+  }
+
+  cerrarSesion(){
+    this.router.navigate(['login']);
+  }
 }

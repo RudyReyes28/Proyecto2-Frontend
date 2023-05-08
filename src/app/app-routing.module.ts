@@ -4,10 +4,12 @@ import { AdministradorComponent } from './admin_components/administrador/adminis
 import { PorcentajeCobroComponent } from './admin_components/porcentaje-cobro/porcentaje-cobro.component';
 import { RevisionEspecialidadComponent } from './admin_components/revision-especialidad/revision-especialidad.component';
 import { RevisionExamenComponent } from './admin_components/revision-examen/revision-examen.component';
+import { VerPerfilAdminComponent } from './admin_components/ver-perfil-admin/ver-perfil-admin.component';
 import { ActualizarTipoExamenComponent } from './laboratorio_components/actualizar-tipo-examen/actualizar-tipo-examen.component';
 import { InformacionInicialLabComponent } from './laboratorio_components/informacion-inicial-lab/informacion-inicial-lab.component';
 import { LaboratorioComponent } from './laboratorio_components/laboratorio/laboratorio.component';
 import { SolicitarExamenComponent } from './laboratorio_components/solicitar-examen/solicitar-examen.component';
+import { VerPerfilLabComponent } from './laboratorio_components/ver-perfil-lab/ver-perfil-lab.component';
 import { VerSolicitudExamenComponent } from './laboratorio_components/ver-solicitud-examen/ver-solicitud-examen.component';
 import { LoginComponent } from './login/login.component';
 import { ActualizarEspecialidadComponent } from './medico_components/actualizar-especialidad/actualizar-especialidad.component';
@@ -17,11 +19,14 @@ import { MedicoComponent } from './medico_components/medico/medico.component';
 import { RevisarExamenConsultaComponent } from './medico_components/revisar-examen-consulta/revisar-examen-consulta.component';
 import { SolicitarEspecialidadComponent } from './medico_components/solicitar-especialidad/solicitar-especialidad.component';
 import { VerConsultasComponent } from './medico_components/ver-consultas/ver-consultas.component';
+import { VerHistorialMedicoComponent } from './medico_components/ver-historial-medico/ver-historial-medico.component';
+import { VerPerfilMedicoComponent } from './medico_components/ver-perfil-medico/ver-perfil-medico.component';
 import { AgendarConsultaComponent } from './paciente_components/agendar-consulta/agendar-consulta.component';
 import { PacienteComponent } from './paciente_components/paciente/paciente.component';
 import { RealizarRecargaComponent } from './paciente_components/realizar-recarga/realizar-recarga.component';
 import { SolicitarExamenesPacienteComponent } from './paciente_components/solicitar-examenes-paciente/solicitar-examenes-paciente.component';
 import { SubirResultadosExamenComponent } from './paciente_components/subir-resultados-examen/subir-resultados-examen.component';
+import { VerPerfilPacienteComponent } from './paciente_components/ver-perfil-paciente/ver-perfil-paciente.component';
 import { VerResultadoExamenComponent } from './paciente_components/ver-resultado-examen/ver-resultado-examen.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 
@@ -50,7 +55,12 @@ const routes: Routes = [
   {path: 'laboratorio/SolicitudExamenes/:id', component:VerSolicitudExamenComponent},
   {path: 'paciente/VerResultados/:id', component:VerResultadoExamenComponent},
   {path: 'paciente/SubirResultados/:id', component:SubirResultadosExamenComponent},
-  {path: 'medico/RevisarExamenes/:id', component:RevisarExamenConsultaComponent}
+  {path: 'medico/RevisarExamenes/:id', component:RevisarExamenConsultaComponent},
+  {path: 'medico/VerHistorial/:id', component:VerHistorialMedicoComponent},
+  {path: 'medico/verPerfil/:id', component:VerPerfilMedicoComponent},
+  {path: 'administrador/verPerfil/:id', component:VerPerfilAdminComponent},
+  {path: 'laboratorio/verPerfil/:id', component:VerPerfilLabComponent},
+  {path: 'paciente/verPerfil/:id', component:VerPerfilPacienteComponent}
   
   
 ];

@@ -28,4 +28,12 @@ export class AdministradorComponent implements OnInit {
     this.router.navigate(['administrador/PorcentajeCobro', this.idAdmin]);
   }
 
+  verPerfil(){
+    this.router.navigate(['administrador/verPerfil', this.idAdmin]);
+  }
+
+  cerrarSesion(){
+    this.router.navigate(['login']);
+  }
+
 }
