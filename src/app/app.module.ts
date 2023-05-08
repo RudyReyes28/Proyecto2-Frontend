@@ -47,6 +47,8 @@ import { VerResultadoExamenComponent } from './paciente_components/ver-resultado
 import { DataServiceResultadoExamenesPaciente } from './data_services/data-service-resultadoExamenPaciente';
 import { SubirResultadosExamenComponent } from './paciente_components/subir-resultados-examen/subir-resultados-examen.component';
 import { DataServiceSubirExamenesConsulta } from './data_services/data-service-subirResultadoExamen';
+import { RevisarExamenConsultaComponent } from './medico_components/revisar-examen-consulta/revisar-examen-consulta.component';
+import { DataServiceRevisarExamenesConsulta } from './data_services/data-service-revisarExamenConsulta';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import { DataServiceSubirExamenesConsulta } from './data_services/data-service-s
     VerConsultasComponent,
     VerSolicitudExamenComponent,
     VerResultadoExamenComponent,
-    SubirResultadosExamenComponent
+    SubirResultadosExamenComponent,
+    RevisarExamenConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,7 @@ import { DataServiceSubirExamenesConsulta } from './data_services/data-service-s
   DataServiceSolicitarNuevoExamen, DataServiceResivionAdmin, DataServicePorcentajeCobro, DataServiceRealizarRecarga,
   DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
   DataServiceSolicitarExamen, DataServiceVerConsultasMedico, DataServiceSolicitudExamenPendiente,
-  DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta],
+  DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,6 +14,7 @@ import { ActualizarEspecialidadComponent } from './medico_components/actualizar-
 import { ActualizarHorarioComponent } from './medico_components/actualizar-horario/actualizar-horario.component';
 import { InformacionInicialComponent } from './medico_components/informacion-inicial/informacion-inicial.component';
 import { MedicoComponent } from './medico_components/medico/medico.component';
+import { RevisarExamenConsultaComponent } from './medico_components/revisar-examen-consulta/revisar-examen-consulta.component';
 import { SolicitarEspecialidadComponent } from './medico_components/solicitar-especialidad/solicitar-especialidad.component';
 import { VerConsultasComponent } from './medico_components/ver-consultas/ver-consultas.component';
 import { AgendarConsultaComponent } from './paciente_components/agendar-consulta/agendar-consulta.component';
@@ -48,8 +49,8 @@ const routes: Routes = [
   {path: 'medico/VerConsultas/:id', component:VerConsultasComponent},
   {path: 'laboratorio/SolicitudExamenes/:id', component:VerSolicitudExamenComponent},
   {path: 'paciente/VerResultados/:id', component:VerResultadoExamenComponent},
-  {path: 'paciente/SubirResultados/:id', component:SubirResultadosExamenComponent}
-  
+  {path: 'paciente/SubirResultados/:id', component:SubirResultadosExamenComponent},
+  {path: 'medico/RevisarExamenes/:id', component:RevisarExamenConsultaComponent}
   
   
 ];

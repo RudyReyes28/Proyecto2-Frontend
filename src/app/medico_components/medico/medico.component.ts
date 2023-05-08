@@ -50,4 +50,8 @@ export class MedicoComponent implements OnInit {
     this.router.navigate(['medico/VerConsultas', this.usuario.idUsuario]);
   }
 
+  revisarExamenes(){
+    this.router.navigate(['medico/RevisarExamenes', this.usuario.idUsuario]);
+  }
+
 }
