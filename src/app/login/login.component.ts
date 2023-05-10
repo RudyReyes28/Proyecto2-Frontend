@@ -68,4 +68,8 @@ export class LoginComponent implements OnInit {
   );
 }
 
+cargarDatos(){
+  this.router.navigate(['cargarDatos']);
+}
+
 }

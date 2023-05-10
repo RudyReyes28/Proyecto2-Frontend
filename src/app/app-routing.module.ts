@@ -5,6 +5,7 @@ import { PorcentajeCobroComponent } from './admin_components/porcentaje-cobro/po
 import { RevisionEspecialidadComponent } from './admin_components/revision-especialidad/revision-especialidad.component';
 import { RevisionExamenComponent } from './admin_components/revision-examen/revision-examen.component';
 import { VerPerfilAdminComponent } from './admin_components/ver-perfil-admin/ver-perfil-admin.component';
+import { CargarDatosComponent } from './cargar-datos/cargar-datos.component';
 import { ActualizarTipoExamenComponent } from './laboratorio_components/actualizar-tipo-examen/actualizar-tipo-examen.component';
 import { InformacionInicialLabComponent } from './laboratorio_components/informacion-inicial-lab/informacion-inicial-lab.component';
 import { LaboratorioComponent } from './laboratorio_components/laboratorio/laboratorio.component';
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path: 'medico/verPerfil/:id', component:VerPerfilMedicoComponent},
   {path: 'administrador/verPerfil/:id', component:VerPerfilAdminComponent},
   {path: 'laboratorio/verPerfil/:id', component:VerPerfilLabComponent},
-  {path: 'paciente/verPerfil/:id', component:VerPerfilPacienteComponent}
+  {path: 'paciente/verPerfil/:id', component:VerPerfilPacienteComponent},
+  {path: 'cargarDatos', component: CargarDatosComponent}
   
   
 ];

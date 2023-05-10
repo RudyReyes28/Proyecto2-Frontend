@@ -1,0 +1,30 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Cargar Datos</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container my-5">
+
+    <div class="card text-center">
+        <div class="card-header">
+          CARGA DE DATOS
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Subir el archivo de carga</h5>
+          <p class="card-text">Selecciona el archivo para cargar los datos a la base de datos</p>
+          <input type="file" (change)="seleccionarArchivo($event)" />
+        </div>
+      </div>
+    
+      <div class="container my-5">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button class="btn btn-primary" type="button"  (click)="regresar()">Regresar</button>
+          </div>
+      </div>
+</div>
+
