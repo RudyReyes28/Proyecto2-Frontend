@@ -53,4 +53,8 @@ export class LaboratorioComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  verReportes(){
+    this.router.navigate(['laboratorio/reportes', this.usuario.idUsuario]);
+  }
+
 }

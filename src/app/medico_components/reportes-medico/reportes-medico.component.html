@@ -1,0 +1,109 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Reportes</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container my-5">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <label>Top 5 de los pacientes que más ingresos han generado en un intervalo de tiempo</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarFormularioPaciente()"
+        >Reporte 1</button>
+        <label>Top 5 especialidades que más ingresos han generado en un intervalo de tiempo</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarFormularioEspecialidad()"
+        >Reporte 2</button>
+    </div>
+
+    <form *ngIf="activarFomularioP===1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerPacientes()">
+        <div class="input-group flex-nowrap mt-3">
+            <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+            <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="fechaInicial"
+            requerid>
+
+            <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+            <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="fechaFinal"
+            requerid>
+        </div>
+    
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button class="btn btn-primary" type="submit" >Ver Pacientes</button>
+        </div>
+
+    </form>
+
+    <form *ngIf="activarFormularioE===1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerEspecialidades()">
+        <div class="input-group flex-nowrap mt-3">
+            <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+            <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="fechaInicial"
+            requerid>
+
+            <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+            <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+            [(ngModel)]="fechaFinal"
+            requerid>
+        </div>
+    
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button class="btn btn-primary" type="submit" >Ver Especialidades</button>
+        </div>
+
+    </form>
+
+    <table *ngIf="tablaPaciente===1" class="table table-striped caption-top">
+        <caption>Reportes de top 5 pacientes</caption> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre Paciente</th>
+              <th scope="col">Cantidad de Consultas</th>
+              <th scope="col">Total Ingreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let paciente of reportesPacienteEsp; let i=index">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{paciente.nombre}}</td>
+              <td>{{paciente.cantidadConsultas}}</td>
+              <td>{{paciente.total}}</td>
+            </tr>
+          </tbody>
+      </table>
+
+      <table *ngIf="tablaEspecialidad===1" class="table table-striped caption-top">
+        <caption>Reportes de top 5 pacientes</caption> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre Especialidad</th>
+              <th scope="col">Cantidad de Consultas</th>
+              <th scope="col">Total Ingreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let especialidad of reportesPacienteEsp; let i=index">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{especialidad.nombre}}</td>
+              <td>{{especialidad.cantidadConsultas}}</td>
+              <td>{{especialidad.total}}</td>
+            </tr>
+          </tbody>
+      </table>
+
+      <div class="container my-5">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="button"  (click)="regresarMedico()">Regresar</button>
+        </div>
+      </div>
+      
+</div>

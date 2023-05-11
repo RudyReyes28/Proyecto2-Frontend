@@ -60,6 +60,10 @@ import { CargarDatosComponent } from './cargar-datos/cargar-datos.component';
 import { DataServiceCargarDatos } from './data_services/data-service-cargarDatos';
 import { ReportesAdminComponent } from './admin_components/reportes-admin/reportes-admin.component';
 import { DataServiceReportesAdmin } from './data_services/data-services-reporte/data-service-reportesAdmin';
+import { ReportesMedicoComponent } from './medico_components/reportes-medico/reportes-medico.component';
+import { ReportesLaboratorioComponent } from './laboratorio_components/reportes-laboratorio/reportes-laboratorio.component';
+import { DataServiceReportesMedico } from './data_services/data-services-reporte/data-service-reporteMedico';
+import { DataServiceReporteLaboratorio } from './data_services/data-services-reporte/data-service-reporteLab';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,9 @@ import { DataServiceReportesAdmin } from './data_services/data-services-reporte/
     VerPerfilLabComponent,
     VerPerfilPacienteComponent,
     CargarDatosComponent,
-    ReportesAdminComponent
+    ReportesAdminComponent,
+    ReportesMedicoComponent,
+    ReportesLaboratorioComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +115,8 @@ import { DataServiceReportesAdmin } from './data_services/data-services-reporte/
   DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
   DataServiceSolicitarExamen, DataServiceVerConsultasMedico, DataServiceSolicitudExamenPendiente,
   DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta,
-  DataServiceVerHistorialMedico, DataServiceVerPerfil, DataServiceCargarDatos,DataServiceReportesAdmin],
+  DataServiceVerHistorialMedico, DataServiceVerPerfil, DataServiceCargarDatos,DataServiceReportesAdmin,
+  DataServiceReportesMedico, DataServiceReporteLaboratorio],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,6 +10,7 @@ import { CargarDatosComponent } from './cargar-datos/cargar-datos.component';
 import { ActualizarTipoExamenComponent } from './laboratorio_components/actualizar-tipo-examen/actualizar-tipo-examen.component';
 import { InformacionInicialLabComponent } from './laboratorio_components/informacion-inicial-lab/informacion-inicial-lab.component';
 import { LaboratorioComponent } from './laboratorio_components/laboratorio/laboratorio.component';
+import { ReportesLaboratorioComponent } from './laboratorio_components/reportes-laboratorio/reportes-laboratorio.component';
 import { SolicitarExamenComponent } from './laboratorio_components/solicitar-examen/solicitar-examen.component';
 import { VerPerfilLabComponent } from './laboratorio_components/ver-perfil-lab/ver-perfil-lab.component';
 import { VerSolicitudExamenComponent } from './laboratorio_components/ver-solicitud-examen/ver-solicitud-examen.component';
@@ -18,6 +19,7 @@ import { ActualizarEspecialidadComponent } from './medico_components/actualizar-
 import { ActualizarHorarioComponent } from './medico_components/actualizar-horario/actualizar-horario.component';
 import { InformacionInicialComponent } from './medico_components/informacion-inicial/informacion-inicial.component';
 import { MedicoComponent } from './medico_components/medico/medico.component';
+import { ReportesMedicoComponent } from './medico_components/reportes-medico/reportes-medico.component';
 import { RevisarExamenConsultaComponent } from './medico_components/revisar-examen-consulta/revisar-examen-consulta.component';
 import { SolicitarEspecialidadComponent } from './medico_components/solicitar-especialidad/solicitar-especialidad.component';
 import { VerConsultasComponent } from './medico_components/ver-consultas/ver-consultas.component';
@@ -64,7 +66,9 @@ const routes: Routes = [
   {path: 'laboratorio/verPerfil/:id', component:VerPerfilLabComponent},
   {path: 'paciente/verPerfil/:id', component:VerPerfilPacienteComponent},
   {path: 'cargarDatos', component: CargarDatosComponent},
-  {path: 'administrador/reportes/:id', component: ReportesAdminComponent}
+  {path: 'administrador/reportes/:id', component: ReportesAdminComponent},
+  {path: 'medico/reportes/:id', component: ReportesMedicoComponent},
+  {path: 'laboratorio/reportes/:id', component: ReportesLaboratorioComponent}
   
   
 ];
