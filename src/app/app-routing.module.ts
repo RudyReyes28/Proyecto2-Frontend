@@ -28,6 +28,7 @@ import { VerPerfilMedicoComponent } from './medico_components/ver-perfil-medico/
 import { AgendarConsultaComponent } from './paciente_components/agendar-consulta/agendar-consulta.component';
 import { PacienteComponent } from './paciente_components/paciente/paciente.component';
 import { RealizarRecargaComponent } from './paciente_components/realizar-recarga/realizar-recarga.component';
+import { ReportesPacienteComponent } from './paciente_components/reportes-paciente/reportes-paciente.component';
 import { SolicitarExamenesPacienteComponent } from './paciente_components/solicitar-examenes-paciente/solicitar-examenes-paciente.component';
 import { SubirResultadosExamenComponent } from './paciente_components/subir-resultados-examen/subir-resultados-examen.component';
 import { VerPerfilPacienteComponent } from './paciente_components/ver-perfil-paciente/ver-perfil-paciente.component';
@@ -68,7 +69,8 @@ const routes: Routes = [
   {path: 'cargarDatos', component: CargarDatosComponent},
   {path: 'administrador/reportes/:id', component: ReportesAdminComponent},
   {path: 'medico/reportes/:id', component: ReportesMedicoComponent},
-  {path: 'laboratorio/reportes/:id', component: ReportesLaboratorioComponent}
+  {path: 'laboratorio/reportes/:id', component: ReportesLaboratorioComponent},
+  {path: 'paciente/reportes/:id', component: ReportesPacienteComponent}
   
   
 ];

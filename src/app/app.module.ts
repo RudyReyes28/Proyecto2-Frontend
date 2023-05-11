@@ -64,6 +64,8 @@ import { ReportesMedicoComponent } from './medico_components/reportes-medico/rep
 import { ReportesLaboratorioComponent } from './laboratorio_components/reportes-laboratorio/reportes-laboratorio.component';
 import { DataServiceReportesMedico } from './data_services/data-services-reporte/data-service-reporteMedico';
 import { DataServiceReporteLaboratorio } from './data_services/data-services-reporte/data-service-reporteLab';
+import { ReportesPacienteComponent } from './paciente_components/reportes-paciente/reportes-paciente.component';
+import { DataServiceReportesPaciente } from './data_services/data-services-reporte/data-service-reportePaciente';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,8 @@ import { DataServiceReporteLaboratorio } from './data_services/data-services-rep
     CargarDatosComponent,
     ReportesAdminComponent,
     ReportesMedicoComponent,
-    ReportesLaboratorioComponent
+    ReportesLaboratorioComponent,
+    ReportesPacienteComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,7 @@ import { DataServiceReporteLaboratorio } from './data_services/data-services-rep
   DataServiceSolicitarExamen, DataServiceVerConsultasMedico, DataServiceSolicitudExamenPendiente,
   DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta,
   DataServiceVerHistorialMedico, DataServiceVerPerfil, DataServiceCargarDatos,DataServiceReportesAdmin,
-  DataServiceReportesMedico, DataServiceReporteLaboratorio],
+  DataServiceReportesMedico, DataServiceReporteLaboratorio, DataServiceReportesPaciente],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

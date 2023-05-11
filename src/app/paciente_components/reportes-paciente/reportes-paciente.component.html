@@ -1,0 +1,259 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Reportes</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+
+<div class="container my-5">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <label>Visualización del historial médico</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarHistorial()"
+        >Reporte 1</button>
+        <label>Historial de recargas realizadas en la aplicación, </label>
+        <button type="button" class="btn btn-primary"
+        (click)="obtenerRecargas()"
+        >Reporte 2</button>
+        <label>Reporte de Consultas en un intervalo de tiempo por especialidad médica</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarConsultas()"
+        >Reporte 3</button>
+        <label>Reporte de Exámenes en un intervalo de tiempo por tipo de examen.</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarExamenes()"
+        >Reporte 4</button>
+    </div>
+
+    <div class="container my-5">
+
+        <form *ngIf="formularioHistorial===1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerHistorial()">
+            <div class="input-group flex-nowrap mt-3">
+                <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+                <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaInicial"
+                requerid>
+    
+                <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+                <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaFinal"
+                requerid>
+            </div>
+        
+    
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit" >Ver Historial</button>
+            </div>
+    
+        </form>
+
+        <form *ngIf="formularioConsultas==1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerConsultas()">
+            <div class="input-group flex-nowrap mt-3">
+                <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+                <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaInicial"
+                requerid>
+    
+                <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+                <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaFinal"
+                requerid>
+
+                <div class="form-floating mb-3">
+                    <select
+                      name="especialidades"
+                      class="form-select"
+                      id="floatingSelect"
+                      aria-label="Floating label select example"
+                      [(ngModel)]="idEspecialidad"
+                      requerid
+                    >
+                      <option
+                        *ngFor="let especialidad of escogerEspecialidades"
+                        [value]="especialidad.idEspecialidad"
+                      >
+                        ID:{{especialidad.idEspecialidad}} Nombre: {{ especialidad.nombre }}
+                      </option>
+                    </select>
+                    <label for="floatingSelect">Especialidad</label>
+                  </div>
+            </div>
+        
+    
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit" >Ver Historial</button>
+            </div>
+    
+        </form>
+
+        <form *ngIf="formularioExamen==1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerExamenes()">
+            <div class="input-group flex-nowrap mt-3">
+                <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+                <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaInicial"
+                requerid>
+    
+                <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+                <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaFinal"
+                requerid>
+
+                <div class="form-floating mb-3">
+                    <select
+                      name="examenes"
+                      class="form-select"
+                      id="floatingSelect"
+                      aria-label="Floating label select example"
+                      [(ngModel)]="idExamen"
+                      requerid
+                    >
+                      <option
+                        *ngFor="let examen of escogerExamenes"
+                        [value]="examen.idTipo"
+                      >
+                        ID:{{examen.idTipo}} Nombre: {{ examen.nombre }}
+                      </option>
+                    </select>
+                    <label for="floatingSelect">Examen</label>
+                  </div>
+            </div>
+        
+    
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit" >Ver Historial</button>
+            </div>
+    
+        </form>
+
+        <table *ngIf="activarTablaHistorial===1" class="table table-striped caption-top">
+            <caption>Historial del paciente</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">id Consulta</th>
+                  <th scope="col">Id Medico</th>
+                  <th scope="col">Id Especialidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Informe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let solicitud of reporteHistorial let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{solicitud.idConsulta}}</td>
+                  <td>{{solicitud.idMedico}}</td>
+                  <td>{{solicitud.idEspecialidad}}</td>
+                  <td>{{solicitud.precio}}</td>
+                  <td>{{solicitud.informe}}</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <div *ngIf="activarTablaHistorial===1" class="container my-3">
+            <table class="table table-striped caption-top">
+                <caption>Ver Examenes</caption> 
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">id Examen</th>
+                      <th scope="col">id Consulta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let consulta of reporteHistorial; let i=index">
+
+                        <div *ngIf="consulta.examenes">
+                            <ng-container *ngFor="let examen of consulta.examenes; let j=index">
+                                <tr>
+                                  <td>{{ i+1 }}.{{ j+1 }}</td>
+                                  <td>{{ examen.idExamen }}</td>
+                                  <td>{{ examen.idSolicitud }}</td>
+                                </tr>
+                            </ng-container>
+                        </div>
+                      
+                    </ng-container>
+                  </tbody>
+              </table>
+          </div>
+
+          <table *ngIf="activarTablaRecargas===1" class="table table-striped caption-top">
+            <caption>Recargas realizadas por el paciente</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col">Fecha y Hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let recarga of reporteRecargas; let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{recarga.monto}}</td>
+                  <td>{{recarga.fecha}}</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <table *ngIf="activarTablaConsultas===1" class="table table-striped caption-top">
+            <caption>Consultas finalizadas</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID consulta</th>
+                  <th scope="col">ID medico</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Informe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="reporteConsultas">
+                    <tr *ngFor="let consulta of reporteConsultas; let i=index">
+                        <th scope="row">{{ i+1 }}</th>
+                        <td>{{consulta.idConsulta}}</td>
+                        <td>{{consulta.idMedico}}</td>
+                        <td>{{consulta.precio}}</td>
+                        <td>{{consulta.informe}}</td>
+                      </tr>
+                </ng-container>
+                
+              </tbody>
+          </table>
+
+          <table *ngIf="activarTablaExamenes===1" class="table table-striped caption-top">
+            <caption>Examenes realizados</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID Solicitud</th>
+                  <th scope="col">ID Laboratorio</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="reporteExamenes">
+                    <tr *ngFor="let consulta of reporteExamenes; let i=index">
+                        <th scope="row">{{ i+1 }}</th>
+                        <td>{{consulta.idSolicitud}}</td>
+                        <td>{{consulta.idLaboratorio}}</td>
+                        <td>{{consulta.precio}}</td>
+                      </tr>
+                </ng-container>
+                
+              </tbody>
+          </table>
+
+    </div>
+
+
+
+    <div class="container my-5">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="button"  (click)="regresarPaciente()">Regresar</button>
+        </div>
+    </div>
+</div>

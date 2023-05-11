@@ -44,4 +44,8 @@ export class PacienteComponent implements OnInit {
   cerrarSesion(){
     this.router.navigate(['login']);
   }
+
+  verReportes(){
+    this.router.navigate(['paciente/reportes', this.idPaciente]);
+  }
 }
