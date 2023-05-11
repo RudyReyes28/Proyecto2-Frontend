@@ -1,0 +1,164 @@
+<header id="main-header" class="py-2 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Reportes</h1>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="container my-5">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <label>Historial de los porcentajes que se han manejado anteriormente </label>
+        <button type="button" class="btn btn-primary"
+        (click)="obtenerPorcentajes()"
+        >Reporte 1</button>
+        <label>Top 5 de médicos que más han generado ingresos a la aplicación </label>
+        <button type="button" class="btn btn-primary"
+        (click)="obtenerMedicos()"
+        >Reporte 2</button>
+        <label>Top 5 de laboratorios que más han generado ingresos a la aplicación </label>
+        <button type="button" class="btn btn-primary"
+        (click)="obtenerLaboratorios()"
+        >Reporte 3</button>
+        <label>Total de ingresos registrados en un intervalo de tiempo por consultas</label>
+        <button type="button" class="btn btn-primary"
+        (click)="activarFomularioC = 1"
+        >Reporte 4</button>
+        <label>Total de ingresos registrados en un intervalo de tiempo por examenes </label>
+        <button type="button" class="btn btn-primary" 
+        (click)="activarFormularioE = 1"
+        >Reporte 5</button>
+    </div>
+
+    <div class="container my-5">
+        <table *ngIf="tablaPorcentaje===1" class="table table-striped caption-top">
+            <caption>Reportes de los porcentajes</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Porcentaje</th>
+                  <th scope="col">Fecha Activacion</th>
+                  <th scope="col">Fecha Desactivacion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let porcentajes of reportesPorcentaje let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{porcentajes.porcentaje}}</td>
+                  <td>{{porcentajes.fechaActivacion}}</td>
+                  <td>{{porcentajes.fechaDesactivacion}}</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <table *ngIf="tablaMedico===1" class="table table-striped caption-top">
+            <caption>Reportes de top 5 medicos</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre Medico</th>
+                  <th scope="col">Cantidad Consultas</th>
+                  <th scope="col">Total Ingreso</th>
+                  <th scope="col">Total App</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medicos of reportesMedico; let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{medicos.nombreMedico}}</td>
+                  <td>{{medicos.cantConsultas}}</td>
+                  <td>{{medicos.totalConsultas}}</td>
+                  <td>{{medicos.totalApp}}</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <table *ngIf="tablaLab===1" class="table table-striped caption-top">
+            <caption>Reportes de top 5 medicos</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre Laboratorio</th>
+                  <th scope="col">Cantidad Examenes</th>
+                  <th scope="col">Total Ingreso</th>
+                  <th scope="col">Total App</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let laboratorio of reportesLab let i=index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{laboratorio.nombreLab}}</td>
+                  <td>{{laboratorio.cantExamenes}}</td>
+                  <td>{{laboratorio.totalExamenes}}</td>
+                  <td>{{laboratorio.totalApp}}</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <form *ngIf="activarFomularioC===1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerConsulta()">
+            <div class="input-group flex-nowrap mt-3">
+                <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+                <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaInicial"
+                requerid>
+
+                <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+                <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaFinal"
+                requerid>
+            </div>
+        
+    
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit" >Cambiar</button>
+            </div>
+    
+        </form>
+
+        <form *ngIf="activarFormularioE===1" #f="ngForm" (ngSubmit)="f.form.valid && obtenerExamen()">
+            <div class="input-group flex-nowrap mt-3">
+                <span class="input-group-text" id="addon-wrapping">Fecha Inicial</span>
+                <input type="date" name="porcentajeActual" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaInicial"
+                requerid>
+
+                <span class="input-group-text" id="addon-wrapping">Fecha Final</span>
+                <input type="date" name="fechafinal" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="addon-wrapping"
+                [(ngModel)]="fechaFinal"
+                requerid>
+            </div>
+        
+    
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit" >Cambiar</button>
+            </div>
+    
+        </form>
+
+        <table *ngIf="tablaCE===1" class="table table-striped caption-top">
+            <caption>Reportes de Consultas o Examenes</caption> 
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Total Ingreso</th>
+                  <th scope="col">Total App</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>{{reportesCE.cantidad}}</td>
+                  <td>{{reportesCE.totalIngresos}}</td>
+                  <td>{{reportesCE.totalApp}}</td>
+                </tr>
+              </tbody>
+          </table>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button"  (click)="regresarAdmin()">Regresar</button>
+    </div>
+</div>

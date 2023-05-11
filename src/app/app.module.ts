@@ -58,6 +58,8 @@ import { VerPerfilLabComponent } from './laboratorio_components/ver-perfil-lab/v
 import { VerPerfilPacienteComponent } from './paciente_components/ver-perfil-paciente/ver-perfil-paciente.component';
 import { CargarDatosComponent } from './cargar-datos/cargar-datos.component';
 import { DataServiceCargarDatos } from './data_services/data-service-cargarDatos';
+import { ReportesAdminComponent } from './admin_components/reportes-admin/reportes-admin.component';
+import { DataServiceReportesAdmin } from './data_services/data-services-reporte/data-service-reportesAdmin';
 
 @NgModule({
   declarations: [
@@ -91,13 +93,15 @@ import { DataServiceCargarDatos } from './data_services/data-service-cargarDatos
     VerPerfilAdminComponent,
     VerPerfilLabComponent,
     VerPerfilPacienteComponent,
-    CargarDatosComponent
+    CargarDatosComponent,
+    ReportesAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+    
   ],
   providers: [UsuarioService, DataServiceLogin, DataServiceRegistrarse, DataServicePrimerInicioSesion,
     DataServiceInformacionInicialMedico, DataServiceInformacionInicialLab, DataServiceSolicitarNuevaEspecialidad,
@@ -105,7 +109,7 @@ import { DataServiceCargarDatos } from './data_services/data-service-cargarDatos
   DataServiceActualizarEspecialidad, DataServiceActualizarTipoExamen, DataServiceAgendarConsulta,
   DataServiceSolicitarExamen, DataServiceVerConsultasMedico, DataServiceSolicitudExamenPendiente,
   DataServiceResultadoExamenesPaciente, DataServiceSubirExamenesConsulta, DataServiceRevisarExamenesConsulta,
-  DataServiceVerHistorialMedico, DataServiceVerPerfil, DataServiceCargarDatos],
+  DataServiceVerHistorialMedico, DataServiceVerPerfil, DataServiceCargarDatos,DataServiceReportesAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

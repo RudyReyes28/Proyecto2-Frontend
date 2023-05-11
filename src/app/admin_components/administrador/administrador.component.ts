@@ -36,4 +36,8 @@ export class AdministradorComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  verReportes(){
+    this.router.navigate(['administrador/reportes', this.idAdmin]);
+  }
+
 }

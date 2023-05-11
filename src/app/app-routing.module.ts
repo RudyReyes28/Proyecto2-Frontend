@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdministradorComponent } from './admin_components/administrador/administrador.component';
 import { PorcentajeCobroComponent } from './admin_components/porcentaje-cobro/porcentaje-cobro.component';
+import { ReportesAdminComponent } from './admin_components/reportes-admin/reportes-admin.component';
 import { RevisionEspecialidadComponent } from './admin_components/revision-especialidad/revision-especialidad.component';
 import { RevisionExamenComponent } from './admin_components/revision-examen/revision-examen.component';
 import { VerPerfilAdminComponent } from './admin_components/ver-perfil-admin/ver-perfil-admin.component';
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path: 'administrador/verPerfil/:id', component:VerPerfilAdminComponent},
   {path: 'laboratorio/verPerfil/:id', component:VerPerfilLabComponent},
   {path: 'paciente/verPerfil/:id', component:VerPerfilPacienteComponent},
-  {path: 'cargarDatos', component: CargarDatosComponent}
+  {path: 'cargarDatos', component: CargarDatosComponent},
+  {path: 'administrador/reportes/:id', component: ReportesAdminComponent}
   
   
 ];
