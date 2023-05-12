@@ -142,7 +142,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let solicitud of reporteHistorial let i=index">
+                <tr *ngFor="let solicitud of reporteHistorial; let i=index">
                   <th scope="row">{{ i+1 }}</th>
                   <td>{{solicitud.idConsulta}}</td>
                   <td>{{solicitud.idMedico}}</td>
@@ -166,15 +166,15 @@
                   <tbody>
                     <ng-container *ngFor="let consulta of reporteHistorial; let i=index">
 
-                        <div *ngIf="consulta.examenes">
+                        <ng-container *ngIf="consulta.examenes">
                             <ng-container *ngFor="let examen of consulta.examenes; let j=index">
                                 <tr>
-                                  <td>{{ i+1 }}.{{ j+1 }}</td>
+                                  <td>{{ j+1 }}</td>
                                   <td>{{ examen.idExamen }}</td>
                                   <td>{{ examen.idSolicitud }}</td>
                                 </tr>
                             </ng-container>
-                        </div>
+                        </ng-container>
                       
                     </ng-container>
                   </tbody>
